@@ -47,7 +47,7 @@ namespace InvokerExample
 
             Apple subscriber1 = new Apple(owner);
             Apple subscriber2 = new Apple(owner);
-            Worm subsciber3 = new Worm(owner);
+            Worm subscriber3 = new Worm(owner);
             Apple subscriber4 = new Apple(owner);
             Apple subscriber5 = new Apple(owner);
 
