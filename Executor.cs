@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Forge.Logging.Abstraction;
 using System;
 using System.Collections.Generic;
 
@@ -9,40 +9,32 @@ namespace Forge.Invoker
     public static class Executor
     {
 
-        /// <summary>Invokes the specified event delegate.</summary>
-        /// <param name="eventDelegate">The event delegate.</param>
-        /// <param name="eventArgs">The event arguments.</param>
-        /// <returns>List of result data of the subscribers</returns>
-        public static List<object
-#if NET6_0_OR_GREATER
-            ?
-#endif
-            > Invoke(Delegate eventDelegate, params object[] eventArgs)
-        {
-            return Invoke(eventDelegate, null, eventArgs);
-        }
+        private static readonly ILog LOGGER = LogManager.GetLogger(typeof(Executor));
 
         /// <summary>Invokes the specified event delegate.</summary>
         /// <param name="eventDelegate">The event delegate.</param>
-        /// <param name="logger">The logger.</param>
         /// <param name="eventArgs">The event arguments.</param>
         /// <returns>List of result data of the subscribers</returns>
         public static List<object
-#if NET6_0_OR_GREATER
+#if NETCOREAPP3_1_OR_GREATER
             ?
 #endif
-            > Invoke(Delegate eventDelegate, ILogger
-#if NET6_0_OR_GREATER
+            > Invoke(Delegate
+#if NETCOREAPP3_1_OR_GREATER
             ?
 #endif
-            logger, params object[] eventArgs)
+            eventDelegate, params object[]
+#if NETCOREAPP3_1_OR_GREATER
+            ? 
+#endif
+            eventArgs)
         {
             List<object
-#if NET6_0_OR_GREATER
+#if NETCOREAPP3_1_OR_GREATER
             ?
 #endif
                 > result = new List<object
-#if NET6_0_OR_GREATER
+#if NETCOREAPP3_1_OR_GREATER
             ?
 #endif
                 >();
@@ -65,7 +57,7 @@ namespace Forge.Invoker
                     }
                     catch (Exception ex)
                     {
-                        if (logger != null) logger.LogError(ex, ex.Message);
+                        LOGGER.Error(ex.Message, ex);
                         index++;
                     }
                 }
