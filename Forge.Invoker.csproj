@@ -45,6 +45,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Remove="Forge.Invoker.csproj.vspscc" />
 		<None Remove="Forge.Invoker.xml" />
 	</ItemGroup>
 
