@@ -8,15 +8,15 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<TargetFrameworks>net40;netstandard2.0;netcoreapp3.1;net6.0</TargetFrameworks>
-		<Version>1.1.0.0</Version>
-		<Copyright>Copyright © Zoltan Juhasz, 2022</Copyright>
+		<TargetFrameworks>net40;netstandard2.0;netcoreapp3.1;net6.0;net7.0;net8.0</TargetFrameworks>
+		<Version>1.1.1.0</Version>
+		<AssemblyVersion>1.1.1.0</AssemblyVersion>
+		<Copyright>Copyright © Zoltan Juhasz, 2022-2024</Copyright>
 		<Description>Forge Invoker</Description>
 		<Product>Forge: reference, practice and patterns implementations and helper(s)</Product>
 		<Company>Forge Project Contributor(s)</Company>
 		<PackageId>Forge.Invoker</PackageId>
 		<Authors>Zoltan Juhasz</Authors>
-		<AssemblyVersion>1.1.0.0</AssemblyVersion>
 		<Title>Forge Invoker</Title>
 		<ProjectGuid>{77F8FD4B-B2C8-4BCD-825C-D800E1AC60F6}</ProjectGuid>
 	</PropertyGroup>
@@ -27,7 +27,7 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0'">
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0' or '$(TargetFramework)' == 'net7.0' or '$(TargetFramework)' == 'net8.0'">
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
@@ -36,7 +36,7 @@
 		<RepositoryUrl>https://github.com/JZO001/Forge.Invoker</RepositoryUrl>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0' or '$(TargetFramework)' == 'net7.0' or '$(TargetFramework)' == 'net8.0'">
 		<SupportedPlatform Include="browser" />
 	</ItemGroup>
 
